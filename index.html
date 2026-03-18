@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>割るくん | ミニロト予想ツール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="authScreen" class="auth-screen">
+      <section class="auth-card">
+        <p class="eyebrow">PASSWORD REQUIRED</p>
+        <h1>割るくん</h1>
+        <p class="lead auth-copy">このツールを使うにはパスワードが必要です。</p>
+        <form id="loginForm" class="auth-form">
+          <label for="passwordInput">パスワード</label>
+          <input id="passwordInput" type="password" autocomplete="current-password" />
+          <button id="loginButton" type="submit">ログイン</button>
+        </form>
+        <p id="authMessage" class="status">パスワードを入力してください。</p>
+      </section>
+    </div>
+
+    <div id="appShell" class="page-shell hidden">
+      <header class="hero">
+        <h1>割るくん</h1>
+        <div class="hero-actions">
+          <button id="logoutButton" type="button" class="button-muted">ログアウト</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel-input">
+          <h2>自動取得する</h2>
+          <p class="panel-copy">
+            起動すると、PAYPAY銀行のミニロトCSVを自動取得します。
+            手動CSVアップロードや貼り付けも予備として使えます。
+          </p>
+
+          <div class="actions primary-actions">
+            <button id="fetchButton" type="button">PAYPAY銀行から自動取得</button>
+          </div>
+
+          <div class="actions">
+            <button id="resetButton" type="button" class="button-muted">リセット</button>
+          </div>
+
+          <p class="status" id="statusMessage">自動取得か手動CSVで計算できます。</p>
+        </section>
+
+        <section class="panel panel-output">
+          <h2>計算結果</h2>
+
+          <div id="emptyState" class="empty-state">
+            <p>まだ計算されていません。</p>
+            <p>自動取得または手動CSVから、直近2回の数字と候補群を表示します。</p>
+          </div>
+
+          <div id="resultArea" class="result-area hidden">
+            <div class="summary-grid">
+              <article class="summary-card">
+                <h3>使用した2回</h3>
+                <div id="drawSummary"></div>
+              </article>
+              <article class="summary-card">
+                <h3>候補数字</h3>
+                <div id="candidatePool" class="number-pool"></div>
+              </article>
+              <article class="summary-card">
+                <h3>自動5数字案</h3>
+                <div id="quickPick" class="number-pool accent"></div>
+              </article>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>位置</th>
+                    <th>直近回</th>
+                    <th>2回前</th>
+                    <th>合計</th>
+                    <th>割る</th>
+                    <th>中心</th>
+                    <th>候補</th>
+                  </tr>
+                </thead>
+                <tbody id="detailBody"></tbody>
+              </table>
+            </div>
+
+            <div class="wheel-panel">
+              <div class="wheel-head">
+                <div>
+                  <h3>ホイールシステム</h3>
+                  <p id="wheelMeta" class="panel-copy">候補数字から指定口数の組み合わせを作ります。</p>
+                </div>
+                <div class="wheel-controls">
+                  <label for="wheelMode">モード</label>
+                  <select id="wheelMode">
+                    <option value="strong" selected>強い数字重視</option>
+                    <option value="balanced">分散重視</option>
+                  </select>
+                  <label for="ticketCount">口数</label>
+                  <select id="ticketCount">
+                    <option value="3">3口</option>
+                    <option value="5">5口</option>
+                    <option value="10" selected>10口</option>
+                    <option value="20">20口</option>
+                    <option value="30">30口</option>
+                  </select>
+                  <button id="wheelButton" type="button" class="button-muted">組み合わせ作成</button>
+                </div>
+              </div>
+              <div id="wheelList" class="wheel-list"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>

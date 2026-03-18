@@ -1,0 +1,12 @@
+{
+  "name": "warukun",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ミニロト予想WEBツール 割るくん",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  }
+}
