@@ -424,6 +424,11 @@ td strong {
 }
 
 @media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   body {
     background: linear-gradient(180deg, #f5ecdc 0%, #faf6ef 100%);
   }
@@ -457,6 +462,11 @@ td strong {
     width: 100%;
   }
 
+  .wheel-controls label {
+    width: 100%;
+    margin-bottom: -2px;
+  }
+
   .auth-card {
     padding: 22px;
   }
@@ -478,10 +488,43 @@ td strong {
     padding: 16px;
   }
 
+  .number-pool {
+    gap: 8px;
+  }
+
   th,
   td {
-    padding: 11px 9px;
-    font-size: 0.9rem;
+    padding: 10px 8px;
+    font-size: 0.84rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 76px;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2),
+  th:nth-child(3),
+  td:nth-child(3),
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(5),
+  td:nth-child(5),
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 62px;
+  }
+
+  th:nth-child(7),
+  td:nth-child(7) {
+    width: auto;
   }
 
   .wheel-ticket {
@@ -494,7 +537,12 @@ td strong {
   }
 
   .ball {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .draw-meta {
+    margin-bottom: 8px;
   }
 }
