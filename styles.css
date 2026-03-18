@@ -18,6 +18,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Zen Kaku Gothic New", sans-serif;
+  -webkit-text-size-adjust: 100%;
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(217, 88, 43, 0.18), transparent 30%),
@@ -70,6 +71,7 @@ body::before {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.9);
   font: inherit;
+  font-size: 16px;
 }
 
 .page-shell {
@@ -226,6 +228,7 @@ button {
   font-weight: 700;
   cursor: pointer;
   transition: transform 180ms ease, opacity 180ms ease, background 180ms ease;
+  font-size: 16px;
 }
 
 button:hover {
@@ -339,6 +342,7 @@ button:hover {
   border: 1px solid var(--line);
   background: white;
   font: inherit;
+  font-size: 16px;
 }
 
 .wheel-list {
@@ -395,6 +399,10 @@ td strong {
 }
 
 @media (max-width: 960px) {
+  body::before {
+    display: none;
+  }
+
   .layout {
     grid-template-columns: 1fr;
   }
@@ -406,9 +414,20 @@ td strong {
   .wheel-list {
     grid-template-columns: 1fr;
   }
+
+  .panel,
+  .auth-card {
+    backdrop-filter: none;
+    background: rgba(255, 252, 244, 0.96);
+    box-shadow: 0 14px 36px rgba(43, 29, 14, 0.1);
+  }
 }
 
 @media (max-width: 640px) {
+  body {
+    background: linear-gradient(180deg, #f5ecdc 0%, #faf6ef 100%);
+  }
+
   .page-shell {
     width: min(100% - 18px, 100%);
     padding-top: 24px;
@@ -440,5 +459,42 @@ td strong {
 
   .auth-card {
     padding: 22px;
+  }
+
+  .auth-form input,
+  .auth-form button {
+    min-height: 52px;
+  }
+
+  .panel-copy,
+  .status,
+  .draw-meta,
+  .lead {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .summary-card {
+    padding: 16px;
+  }
+
+  th,
+  td {
+    padding: 11px 9px;
+    font-size: 0.9rem;
+  }
+
+  .wheel-ticket {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .wheel-ticket-label {
+    min-width: 0;
+  }
+
+  .ball {
+    width: 40px;
+    height: 40px;
   }
 }
