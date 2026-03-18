@@ -6,7 +6,7 @@ const HOST = process.env.HOST || "0.0.0.0";
 const PORT = Number.parseInt(process.env.PORT || "3000", 10);
 const ROOT = __dirname;
 const CSV_URL = "https://www.japannetbank.co.jp/lottery/co/minilotojnb.csv";
-const PASSWORD = process.env.WARUKUN_PASSWORD || "1234";
+const PASSWORD = process.env.WARUKUN_PASSWORD || "1GyyuiRteW";
 const SESSION_COOKIE = "warukun_session";
 const SESSION_TOKEN = Math.random().toString(36).slice(2);
 

@@ -4,7 +4,7 @@ const SESSION_COOKIE = "warukun_session";
 const SESSION_MAX_AGE = 60 * 60 * 24 * 30;
 
 function getPassword() {
-  return process.env.WARUKUN_PASSWORD || "1234";
+  return process.env.WARUKUN_PASSWORD || "1GyyuiRteW";
 }
 
 function getCookieSecret() {
