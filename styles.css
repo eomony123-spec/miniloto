@@ -309,6 +309,33 @@ button:hover {
   border-radius: 22px;
 }
 
+.detail-cards {
+  display: none;
+  margin-top: 18px;
+}
+
+.detail-card {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(32, 32, 28, 0.06);
+}
+
+.detail-card + .detail-card {
+  margin-top: 12px;
+}
+
+.detail-card h4 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.detail-card p {
+  margin: 4px 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .wheel-panel {
   margin-top: 18px;
   padding: 18px;
@@ -492,39 +519,12 @@ td strong {
     gap: 8px;
   }
 
-  th,
-  td {
-    padding: 10px 8px;
-    font-size: 0.84rem;
-    white-space: normal;
-    word-break: break-word;
+  .table-wrap {
+    display: none;
   }
 
-  table {
-    table-layout: fixed;
-  }
-
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 76px;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2),
-  th:nth-child(3),
-  td:nth-child(3),
-  th:nth-child(4),
-  td:nth-child(4),
-  th:nth-child(5),
-  td:nth-child(5),
-  th:nth-child(6),
-  td:nth-child(6) {
-    width: 62px;
-  }
-
-  th:nth-child(7),
-  td:nth-child(7) {
-    width: auto;
+  .detail-cards {
+    display: block;
   }
 
   .wheel-ticket {

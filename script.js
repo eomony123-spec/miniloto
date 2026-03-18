@@ -28,6 +28,7 @@ const drawSummary = document.getElementById("drawSummary");
 const candidatePool = document.getElementById("candidatePool");
 const quickPick = document.getElementById("quickPick");
 const detailBody = document.getElementById("detailBody");
+const detailCards = document.getElementById("detailCards");
 const wheelMode = document.getElementById("wheelMode");
 const ticketCount = document.getElementById("ticketCount");
 const wheelButton = document.getElementById("wheelButton");
@@ -181,6 +182,7 @@ function analyzeCsvText(rawText) {
 function resetForm() {
   currentCalculation = null;
   detailBody.innerHTML = "";
+  detailCards.innerHTML = "";
   drawSummary.innerHTML = "";
   candidatePool.innerHTML = "";
   quickPick.innerHTML = "";
@@ -399,6 +401,7 @@ function renderResult(latest, previous, calculation) {
   candidatePool.innerHTML = "";
   quickPick.innerHTML = "";
   detailBody.innerHTML = "";
+  detailCards.innerHTML = "";
 
   drawSummary.append(
     buildMetaParagraph(`直近回: ${latest.label}`),
@@ -422,6 +425,19 @@ function renderResult(latest, previous, calculation) {
       <td>${detail.candidates.join(" / ")}</td>
     `;
     detailBody.appendChild(row);
+
+    const card = document.createElement("article");
+    card.className = "detail-card";
+    card.innerHTML = `
+      <h4>${detail.position}</h4>
+      <p>直近回: <strong>${detail.current}</strong></p>
+      <p>2回前: <strong>${detail.past}</strong></p>
+      <p>合計: ${detail.total}</p>
+      <p>割る: ${formatAverage(detail.average)}</p>
+      <p>中心: ${detail.center}</p>
+      <p>候補: ${detail.candidates.join(" / ")}</p>
+    `;
+    detailCards.appendChild(card);
   });
 
   renderWheelSystem();
